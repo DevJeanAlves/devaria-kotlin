@@ -1,0 +1,45 @@
+import java.math.BigDecimal
+
+fun calculaOperacao(primeiroNumero : BigDecimal, operador : String, segundoNumero : BigDecimal) : BigDecimal {
+    when(operador) {
+        "+" -> return primeiroNumero + segundoNumero
+        "-" -> return primeiroNumero - segundoNumero
+        "*" -> return primeiroNumero * segundoNumero
+        "/" -> return primeiroNumero / segundoNumero
+        "%" -> return primeiroNumero % segundoNumero
+        else -> return BigDecimal.ZERO
+    }
+
+}
+
+fun main() {
+    println("Digite um numero válido:")
+    val primeiroNumero = readLine()?.toBigDecimalOrNull()
+
+    if (primeiroNumero == null) {
+        println("Primeiro numero informado não é válido")
+        return
+    }
+
+    println("Digite um operador válido (+,-,/,* ou %):")
+    val operador = readLine()
+
+    if (operador.isNullOrEmpty() || operador.isNullOrBlank() ||
+        (operador != null && operador != "+" && operador != "-" && operador != "/" && operador != "*" && operador != "%")
+    ) {
+        println("Operador inválido")
+        return
+    }
+
+    println("Digite o segundo numero válido:")
+    val segundoNumero = readLine()?.toBigDecimal()
+
+    if (segundoNumero == null) {
+        println("O Segundo numero informado não é válido")
+        return
+    }
+    val resultado = calculaOperacao(primeiroNumero, operador,segundoNumero)
+    println("O resultado da sua operação foi: $resultado")
+
+
+}
