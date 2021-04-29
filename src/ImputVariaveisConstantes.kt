@@ -11,9 +11,8 @@ fun main(argumentos : Array<String>) {
         return
     }
 
-    print("O numero digitado foi: $numero")
+    println("O numero digitado foi: $numero")
 
-    var soma = 0
-    soma = numero + numero
-    println("A soma doo numero + numero é: $soma")
+    val soma: Int = numero + numero
+    println("A soma do numero + numero é: $soma")
 }
